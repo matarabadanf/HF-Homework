@@ -125,7 +125,7 @@ program EST
     allocate(ERI_MO(nBas,nBas,nBas,nBas))
 
     call cpu_time(start_AOtoMO)
-!   call AO_to_MO(nBas,c,ERI,ERI_MO)
+    call AO_to_MO(nBas,c,ERI,ERI_MO)
     call cpu_time(end_AOtoMO)
 
     t_AOtoMO = end_AOtoMO - start_AOtoMO
