@@ -142,37 +142,37 @@ program EST
     allocate(e_cis(ov*on))
 
     call cpu_time(start_AOtoMO)
-    call CIS()
+    call CIS(nbas, no, nv, e, eri_mo,e_cis)
     call cpu_time(end_AOtoMO)
 
     t_AOtoMO = end_AOtoMO - start_AOtoMO
-    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for AO to MO transformation = ',t_AOtoMO,' seconds'
+    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for CIS energy calculation = ',t_AOtoMO,' seconds'
     write(*,*)
 
-!------------------------------------------------------------------------
-! Compute CCD energy
-!------------------------------------------------------------------------
-
-    call cpu_time(start_CCD)
-!   call CCD(nBas,nO,nV,ENuc,EHF,e,ERI_MO)
-    call cpu_time(end_CCD)
-
-    t_CCD = end_CCD - start_CCD
-    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for CCD = ',t_CCD,' seconds'
-    write(*,*)
-
-
-!------------------------------------------------------------------------
-! Compute MP2 energy
-!------------------------------------------------------------------------
-
-    call cpu_time(start_MP2)
-!   call MP2(nBas,nO,nV,e,ERI_MO,ENuc,EHF)
-    call cpu_time(end_MP2)
-
-    t_MP2 = end_MP2 - start_MP2
-    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for MP2 = ',t_MP2,' seconds'
-    write(*,*)
+!!!    !------------------------------------------------------------------------
+!!!    ! Compute CCD energy
+!!!    !------------------------------------------------------------------------
+!!!    
+!!!        call cpu_time(start_CCD)
+!!!    !   call CCD(nBas,nO,nV,ENuc,EHF,e,ERI_MO)
+!!!        call cpu_time(end_CCD)
+!!!    
+!!!        t_CCD = end_CCD - start_CCD
+!!!        write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for CCD = ',t_CCD,' seconds'
+!!!        write(*,*)
+!!!    
+!!!    
+!!!    !------------------------------------------------------------------------
+!!!    ! Compute MP2 energy
+!!!    !------------------------------------------------------------------------
+!!!    
+!!!        call cpu_time(start_MP2)
+!!!    !   call MP2(nBas,nO,nV,e,ERI_MO,ENuc,EHF)
+!!!        call cpu_time(end_MP2)
+!!!    
+!!!        t_MP2 = end_MP2 - start_MP2
+!!!        write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for MP2 = ',t_MP2,' seconds'
+!!!        write(*,*)
 !------------------------------------------------------------------------
 ! End of EST
 !------------------------------------------------------------------------
