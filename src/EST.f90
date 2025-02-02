@@ -27,6 +27,9 @@ program EST
   double precision,allocatable  :: e(:)
   double precision,allocatable  :: c(:,:)
 
+! energy arrays for TDHF and CIS 
+  double precision, allocatable :: e_cis(:), e_TDHF(:)
+
   double precision              :: start_HF,end_HF,t_HF
   double precision              :: start_AOtoMO,end_AOtoMO,t_AOtoMO
   double precision              :: start_MP2,end_MP2,t_MP2
@@ -133,15 +136,17 @@ program EST
     write(*,*)
 
 !------------------------------------------------------------------------
-! Compute MP2 energy
+! Compute CIS energy 
 !------------------------------------------------------------------------
 
-    call cpu_time(start_MP2)
-!   call MP2(nBas,nO,nV,e,ERI_MO,ENuc,EHF)
-    call cpu_time(end_MP2)
+    allocate(e_cis(ov*on))
 
-    t_MP2 = end_MP2 - start_MP2
-    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for MP2 = ',t_MP2,' seconds'
+    call cpu_time(start_AOtoMO)
+    call CIS()
+    call cpu_time(end_AOtoMO)
+
+    t_AOtoMO = end_AOtoMO - start_AOtoMO
+    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for AO to MO transformation = ',t_AOtoMO,' seconds'
     write(*,*)
 
 !------------------------------------------------------------------------
@@ -156,6 +161,18 @@ program EST
     write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for CCD = ',t_CCD,' seconds'
     write(*,*)
 
+
+!------------------------------------------------------------------------
+! Compute MP2 energy
+!------------------------------------------------------------------------
+
+    call cpu_time(start_MP2)
+!   call MP2(nBas,nO,nV,e,ERI_MO,ENuc,EHF)
+    call cpu_time(end_MP2)
+
+    t_MP2 = end_MP2 - start_MP2
+    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for MP2 = ',t_MP2,' seconds'
+    write(*,*)
 !------------------------------------------------------------------------
 ! End of EST
 !------------------------------------------------------------------------
