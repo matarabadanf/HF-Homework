@@ -34,6 +34,11 @@ do i = 1, ov
         write(*, '(*(i2))') identity_matrix(i,:)
 end do 
 
+write(*, *)
+write(*, '(A65, i5, A65, i5)') 'The number of occupied orbitals is: ',&
+        no, '. The number of virtual orbitals is: ', nv
+write(*, *)
+
 ex = 0 
 do i = 1, no 
         do j = no + 1, no + nv  
@@ -42,9 +47,14 @@ do i = 1, no
                 ex_vec(ex, 2) = j 
         end do 
 end do 
-        
-write(*, '(*(i2))') ex_vec(:,:)
 
+write(*,'(A15)') '---------------'
+write(*,'(A15)') 'CIS EXCITATIONS'
+write(*,'(A15)') '---------------'
+write(*, *) 
+do i = 1, ov 
+    write(*, '(A11, i4, a2, i4, a4, i4)') 'Excitation ', i, ': ', ex_vec(i,1), ' -> ', ex_vec(i, 2)
+end do 
 
 end subroutine CIS 
 

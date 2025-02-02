@@ -139,10 +139,10 @@ program EST
 ! Compute CIS energy 
 !------------------------------------------------------------------------
 
-    allocate(e_cis(ov*on))
-
+    allocate(e_cis(nv*no))
+    write(*, *) 'The number of occupied orbitals is ', nO
     call cpu_time(start_AOtoMO)
-    call CIS(nbas, no, nv, e, eri_mo,e_cis)
+    call CIS(nbas, no, nv, e, eri_mo, e_cis)
     call cpu_time(end_AOtoMO)
 
     t_AOtoMO = end_AOtoMO - start_AOtoMO
