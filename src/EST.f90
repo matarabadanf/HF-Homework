@@ -140,15 +140,28 @@ program EST
 !------------------------------------------------------------------------
 
     allocate(e_cis(nv*no))
-    write(*, *) 'The number of occupied orbitals is ', nO
     call cpu_time(start_AOtoMO)
     call CIS(nbas, no, nv, e, eri_mo, e_cis)
     call cpu_time(end_AOtoMO)
 
     t_AOtoMO = end_AOtoMO - start_AOtoMO
-    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for CIS energy calculation = ',t_AOtoMO,' seconds'
+    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for CIS energy calculation = '&
+            ,t_AOtoMO,' seconds'
     write(*,*)
 
+!------------------------------------------------------------------------
+! Compute TDHF energy 
+!------------------------------------------------------------------------
+
+    allocate(e_tdhf(nv*no))
+    call cpu_time(start_AOtoMO)
+    call TDHF(nbas, no, nv, e, eri_mo, e_tdhf)
+    call cpu_time(end_AOtoMO)
+
+    t_AOtoMO = end_AOtoMO - start_AOtoMO
+    write(*,'(A65,1X,F9.3,A8)') 'Total CPU time for TDHF energy calculation = '&
+            ,t_AOtoMO,' seconds'
+    write(*,*)
 !!!    !------------------------------------------------------------------------
 !!!    ! Compute CCD energy
 !!!    !------------------------------------------------------------------------

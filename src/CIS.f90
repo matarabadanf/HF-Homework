@@ -85,9 +85,12 @@ write(*,'(A23)') '-----------------------'
 write(*, *) 
 
 do i = 1, ov
-        write(*, '((f6.2), a13, f6.2, a3)') cis_energies(i), ' hartree     ',cis_energies(i) * 27.2114, ' eV'
+        write(*, '((A11, i4, a2, i4, a4, i4), a2, (f10.5), a13, f10.5, a3)')&
+                'Excitation ', i, ': ', ex_vec(i,1), ' -> ', ex_vec(i, 2), &
+                ', ', cis_energies(i), ' hartree     ',cis_energies(i) * 27.2114, ' eV'
 end do 
 
+write(*,*)
 
 end subroutine CIS 
 
