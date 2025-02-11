@@ -107,7 +107,7 @@
       4     2.52437707
       5     2.52437707
 
-                                         Total CPU time for HF =      0.002 seconds
+                                         Total CPU time for HF =      0.001 seconds
 
                     Total CPU time for AO to MO transformation =      0.000 seconds
 
@@ -122,23 +122,27 @@ Excitation    1:    1 ->    2
 Excitation    2:    1 ->    3
 Excitation    3:    1 ->    4
 Excitation    4:    1 ->    5
----------------
-     CIS MATRIX
----------------
 
-  1.91  0.00  0.00  0.00
-  0.00  2.84  0.00  0.00
-  0.00  0.00  2.84  0.00
-  0.00  0.00  0.00  2.84
+ Building CIS matrix...
+
+ Diagonalizing CIS matrix...
 
 -----------------------
 CIS EXCITATION ENERGIES
 -----------------------
 
-Excitation    1:    1 ->    2,    1.90901 hartree       51.94674 eV
-Excitation    2:    1 ->    3,    2.84356 hartree       77.37718 eV
-Excitation    3:    1 ->    4,    2.84356 hartree       77.37718 eV
-Excitation    4:    1 ->    5,    2.84356 hartree       77.37718 eV
+State    1:    1.90901 hartree       51.94674 eV
+ 1 ->  2:    1.00000  ( c=   1.00000 )
+
+State    2:    2.84356 hartree       77.37718 eV
+ 1 ->  3:    1.00000  ( c=   1.00000 )
+
+State    3:    2.84356 hartree       77.37718 eV
+ 1 ->  4:    1.00000  ( c=   1.00000 )
+
+State    4:    2.84356 hartree       77.37718 eV
+ 1 ->  5:    1.00000  ( c=   1.00000 )
+
 
                      Total CPU time for CIS energy calculation =      0.000 seconds
 
@@ -151,45 +155,32 @@ Excitation    1:    1 ->    2
 Excitation    2:    1 ->    3
 Excitation    3:    1 ->    4
 Excitation    4:    1 ->    5
-           4           4
 
-Constructing A matrix...
+ Constructing A matrix ...
 
-Constructing B matrix...
+ Constructing B matrix ...
 
+ Calculating (A-B)**0.5 ...
 
-     a_m_b eigenvectors:
+ Building C matrix ...
 
-  1.00  0.00  0.00  0.00
-  0.00  1.00  0.00  0.00
-  0.00  0.00  1.00  0.00
-  0.00  0.00  0.00  1.00
-
-      a_m_b eigenvalues:
-
-  1.91  2.84  2.84  2.84
-
- a_m_b eigenvalues sqrt:
-
-  1.38  1.69  1.69  1.69
-
----------------
-       C MATRIX
----------------
-
-  3.64  0.00  0.00  0.00
-  0.00  8.09  0.00  0.00
-  0.00  0.00  8.09  0.00
-  0.00  0.00  0.00  8.09
+ Diagonalizing C matrix ...
 
 ------------------------
 TDHF EXCITATION ENERGIES
 ------------------------
 
-Excitation    1:    1 ->    2,    1.90901 hartree       51.94674 eV
-Excitation    2:    1 ->    3,    2.84356 hartree       77.37718 eV
-Excitation    3:    1 ->    4,    2.84356 hartree       77.37718 eV
-Excitation    4:    1 ->    5,    2.84356 hartree       77.37718 eV
+State    1:    1.89540 hartree       51.57654 eV
+ 1 ->  2:    1.00000  ( c=   1.00000 )
 
-                    Total CPU time for TDHF energy calculation =      0.001 seconds
+State    2:    2.83765 hartree       77.21652 eV
+ 1 ->  3:    1.00000  ( c=   1.00000 )
+
+State    3:    2.83765 hartree       77.21652 eV
+ 1 ->  4:    1.00000  ( c=   1.00000 )
+
+State    4:    2.83765 hartree       77.21652 eV
+ 1 ->  5:    1.00000  ( c=   1.00000 )
+
+                    Total CPU time for TDHF energy calculation =      0.000 seconds
 
